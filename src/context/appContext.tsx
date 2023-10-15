@@ -2,7 +2,7 @@ import { FC, createContext, useState, PropsWithChildren } from "react";
 import { ColorSchemeName, useColorScheme } from "react-native";
 
 // context interface
-interface AppContextType {
+type AppContextType = {
 	theme: ColorSchemeName
 }
 

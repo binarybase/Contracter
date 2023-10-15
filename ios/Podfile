@@ -60,3 +60,6 @@ target 'contracter' do
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
+
+# WatermelonDB dependency
+pod 'simdjson', path: '../node_modules/@nozbe/simdjson', modular_headers: true

@@ -1,23 +1,23 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { Navigators, Routes } from "../constants"
-import { ContractType } from "./contract"
+import { TContract } from "./contract"
 import { RouteProp } from "@react-navigation/native"
 
 // navigators inside root stack
-export type RootStackParamsList = {
+export type TRootStackParamsList = {
 	[Navigators.Contracts]: undefined
 }
 
 // contracts navigator params list
-export type ContractsStackParamsList = {
+export type TContractsStackParamsList = {
 	[Routes.ContractsHome]: undefined,
 	[Routes.ContractsEditForm]: {
-		item?: ContractType
+		item?: TContract
 	} | undefined
 }
 
 // contracts navigator props
-export type ContractsNavigationProp = NativeStackNavigationProp<ContractsStackParamsList, Routes.ContractsHome | Routes.ContractsEditForm>;
+export type TContractsNavigationProp = NativeStackNavigationProp<TContractsStackParamsList, Routes.ContractsHome | Routes.ContractsEditForm>;
 
 // contracts edit form route prop
-export type ContractsEditFormRouteProp = RouteProp<ContractsStackParamsList, Routes.ContractsEditForm>;
+export type TContractsEditFormRouteProp = RouteProp<TContractsStackParamsList, Routes.ContractsEditForm>;

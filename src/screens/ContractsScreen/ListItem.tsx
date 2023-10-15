@@ -1,7 +1,7 @@
-import type { ContractType } from "../../types/contract"
+import type { TContract } from "../../types/contract"
 import { Text, View } from "@gluestack-ui/themed";
 type Props = {
-	item: ContractType
+	item: TContract
 }
 
 const ListItem: React.FC<Props> = ({ item }) => (

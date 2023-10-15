@@ -7,10 +7,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AppContextProvider } from './src/context/appContext';
 import ContractsNavigator from './src/navigator/ContractsNavigator';
 import { Navigators } from './src/constants';
-import { RootStackParamsList } from './src/types/navigation';
+import { TRootStackParamsList } from './src/types/navigation';
+import { database } from './src/database';
+import { DatabaseProvider } from '@nozbe/watermelondb/DatabaseProvider'
 
 // create stack navigator which handles all nav actions within app
-const Stack = createNativeStackNavigator<RootStackParamsList>();
+const Stack = createNativeStackNavigator<TRootStackParamsList>();
 
 // main App component
 const App = (): JSX.Element => {
@@ -18,16 +20,18 @@ const App = (): JSX.Element => {
 		<SafeAreaProvider>
 			<NavigationContainer>
 				<AppContextProvider>
-					<GluestackUIProvider config={config}>
-					<Stack.Navigator screenOptions={{
-						headerShown: false
-					}}>
-						<Stack.Screen
-							component={ContractsNavigator} 
-							name={Navigators.Contracts}
-						/>
-					</Stack.Navigator>
-					</GluestackUIProvider>
+				<DatabaseProvider database={database}>
+				<GluestackUIProvider config={config}>
+				<Stack.Navigator screenOptions={{
+					headerShown: false
+				}}>
+					<Stack.Screen
+						component={ContractsNavigator} 
+						name={Navigators.Contracts}
+					/>
+				</Stack.Navigator>
+				</GluestackUIProvider>
+				</DatabaseProvider>
 				</AppContextProvider>
 			</NavigationContainer>
 		</SafeAreaProvider>

@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { contractsAddTitleText, contractsTitleText } from "../messages";
 import ContractsScreen from "../screens/ContractsScreen/ContractsScreen";
 import EditFormScreen from "../screens/ContractsScreen/EditFormScreen";
-import { ContractsStackParamsList } from "../types/navigation";
+import { TContractsStackParamsList } from "../types/navigation";
 import { Routes } from "../constants";
 
 /**
@@ -10,7 +10,7 @@ import { Routes } from "../constants";
  * it can switch between listView, formControl, etc.
  */
 
-const Stack = createNativeStackNavigator<ContractsStackParamsList>();
+const Stack = createNativeStackNavigator<TContractsStackParamsList>();
 const ContractsNavigator = (): JSX.Element => (
 	<Stack.Navigator screenOptions={{
 		headerLargeTitle: true
